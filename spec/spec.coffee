@@ -1,7 +1,15 @@
 vows        = require('vows')
 assert      = require('assert')
 states      = require('../src/states')
-camelize    = require('../src/camelize')
+
+# the following two functions are copied from states.coffee
+capitalize = (string)->
+  string.charAt(0).toUpperCase() + string.slice(1)
+
+camelize = (string)->
+  string = string.toLowerCase().replace(/\s/g, '_')
+  (capitalize(token) for token in string.split('_')).join('')
+  
 
 class Barfer
   constructor: ()->
@@ -110,6 +118,7 @@ vow.addBatch(
       for state in topic._possibleStates
         topic.state(state)
         for otherState in topic._possibleStates
+          state_name = 
           isInState = topic["is#{camelize(otherState)}"]()
           assert.equal(isInState, state is otherState)
     
