@@ -7,8 +7,48 @@ simple state handling for js in node/browser
 npm install states
 ```
 
-# Usage
-In CoffeeScript
+# Example Usage
+
+Quick example in JavaScript
+
+```js
+states = require('states').states
+
+function Simple() {
+  states(this, ['starting', 'done']);
+}
+
+Simple.prototype.test = function() {
+  if (this.isStarting()) {
+    console.log('it starts in the first state by default.');
+  }
+  
+  this.state('done')
+  
+  if (this.isDone()) {
+    console.log('all done');
+  }
+}
+
+Simple.prototype.onExitStarting = function() {
+  console.log('exiting starting state');
+};
+
+Simple.prototype.onEnterDone = function() {
+  console.log('entering done state');
+};
+
+simple = new Simple();
+simple.test();
+```
+outputs
+```
+it starts in the first state by default.
+exiting starting state
+entering done state
+all done
+```
+Longer example in CoffeeScript 
 
 ```coffee
 {states} = require('states')
@@ -53,9 +93,7 @@ class Barfer
 barfer = new Barfer()
 barfer.goTimeGottaMakeItHappenOhhhhhYeaaaaahDuffman()
 ```
-
 outputs
-
 ```
 TOTALLY NOT GONNA BARF
 yeah, i swear, i'm  not barfing
