@@ -1,6 +1,6 @@
 {
   "name": "states",
-  "description": "simple state handling for js in node/browser ",
+  "description": "Add simple state machine to Javascript objects",
   "version": "0.0.2",
   "author": "Stephen Handley <stephen.handley@gmail.com>",
   "keywords": ["state", "states", "state machine", "simple", "coffeescript"],

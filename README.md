@@ -1,6 +1,6 @@
 # Description:
 
-Simple state handling for js in node/browser.
+Add simple state machine to Javascript objects.
 
 # Installation:
 ```
