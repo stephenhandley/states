@@ -1,0 +1,28 @@
+{
+  "name": "states",
+  "description": "simple state handling for js in node and the browser",
+  "version": "0.0.1",
+  "author": "Stephen Handley <stephen.handley@gmail.com>",
+  "keywords": ["state", "states", "state machine", "simple", "coffeescript"],
+  "main": "./lib/states",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stephenhandley/states.git"
+  },
+  "bugs": { 
+    "url" : "http://github.com/stephenhandley/states/issues",
+    "email" : "stephen.handley@gmail.com"
+  },
+  "scripts": {
+    "spec": "cake spec",
+    "build": "cake build"
+  },
+  "engines": {
+    "node": "~0.6.11"
+  },
+  "dependencies": {},
+  "devDependencies": { 
+    "vows":           "~0.6.2",
+    "coffee-script":  "~1.2.0"
+  }
+}
