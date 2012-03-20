@@ -1,6 +1,6 @@
 {exec} = require 'child_process'
 
-task('build', 'Build project from src/*.coffee to lib/*.js', ->
+task('build', 'Build project from src/*.coffee to lib/*.js', ()->
   exec('coffee --compile --output lib/ src/', (error, stdout, stderr)->
     if error
       console.log(error)
@@ -9,14 +9,20 @@ task('build', 'Build project from src/*.coffee to lib/*.js', ->
   )
 )
 
-task('clean', 'Clean build dir', ->
-  exec('rm lib/*.js', (error, stdout, stderr) ->
+task('clean', 'Clean build dir', ()->
+  exec('rm lib/*.js', (error, stdout, stderr)->
     console.log(stdout)
   )
 )
 
-task('spec', 'Run spec', ->
-  exec('./node_modules/vows/bin/vows spec/spec.coffee --spec', (error, stdout, stderr) ->
+task('spec', 'Run spec', ()->
+  exec('./node_modules/vows/bin/vows spec/spec.coffee --spec', (error, stdout, stderr)->
+    console.log(stdout)
+  )
+)
+
+task('docs', 'Create docco docs', ()->
+  exec('./node_modules/docco/bin/docco src/*.coffee', (error, stdout, stderr)->
     console.log(stdout)
   )
 )
