@@ -1,22 +1,72 @@
 # Description:
 
-simple state handling for js in node/browser 
-
+Simple state handling for js in node/browser.
 
 # Installation:
 ```
 npm install states
 ```
 
-# Example Usage
+# Usage
+
+```js
+// require
+states = require('states') 
+
+obj = {
+  name: 'duh',
+  job: 'duh'
+}
+
+// initialize
+states(obj, ["starting", "working", "not doing a damn thing", "finished"]) 
+
+// returns current state (initially the first element of the array passed above)
+obj.state() // "starting"
+
+// defines helpers for checking current state
+obj.isStarting()          // true
+obj.isWorking()           // false
+obj.isNotDoingADamnThing  // false
+obj.isFinished()          // false
+
+// can define (optional) state event handlers explicitly
+obj.onExitState('starting', function() {
+  console.log('bye')
+});
+
+// or implicitly based on naming convention of onEnter{CamelizedStateName}, onExit{CamelizedStateName}
+obj.onEnterNotDoingADamnThing = function() {
+  console.log('OH NO')
+};
+
+// sets current state, calls callbacks if they're defined on obj
+obj.state('not doing a damn thing')
+
+// returns list of possible states
+obj.states() // [ 'starting', 'working', 'not doing a damn thing', 'finished' ]
+```
+
+results in 
+
+```
+'bye'
+'OH NO' 
+```
+
+# Examples
 
 Quick example in JavaScript
 
 ```js
-states = require('states').states
+states = require('states')
 
 function Simple() {
   states(this, ['starting', 'done']);
+  
+  this.onExitState('starting', function() {
+    console.log('exiting starting state');
+  });
 }
 
 Simple.prototype.test = function() {
@@ -30,10 +80,6 @@ Simple.prototype.test = function() {
     console.log('all done');
   }
 }
-
-Simple.prototype.onExitStarting = function() {
-  console.log('exiting starting state');
-};
 
 Simple.prototype.onEnterDone = function() {
   console.log('entering done state');
@@ -56,7 +102,7 @@ Longer example in CoffeeScript
  
 
 ```coffee
-{states} = require('states')
+states = require('states')
 
 class Barfer
   constructor: ()->

@@ -5,13 +5,18 @@ task('build', 'Build project from src/*.coffee to lib/*.js', ->
     if error
       console.log(error)
       throw error
-    console.log("Build successful")
+    console.log(stdout)
+  )
+)
+
+task('clean', 'Clean build dir', ->
+  exec('rm lib/*.js', (error, stdout, stderr) ->
+    console.log(stdout)
   )
 )
 
 task('spec', 'Run spec', ->
-  invoke('build')
   exec('./node_modules/vows/bin/vows spec/spec.coffee --spec', (error, stdout, stderr) ->
-    console.log stdout
+    console.log(stdout)
   )
 )
