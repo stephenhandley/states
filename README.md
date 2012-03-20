@@ -1,8 +1,8 @@
-# Description:
+# Description
 
 Add simple state machine to Javascript objects.
 
-# Installation:
+# Installation
 ```
 npm install states
 ```
