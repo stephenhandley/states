@@ -30,12 +30,12 @@ obj.isWorking()           // false
 obj.isNotDoingADamnThing  // false
 obj.isFinished()          // false
 
-// can define (optional) state event handlers explicitly
+// can attach (optional) state event handlers directly
 obj.onExitState('starting', function() {
   console.log('bye')
 });
 
-// or implicitly based on naming convention of onEnter{CamelizedStateName}, onExit{CamelizedStateName}
+// or indirectly based on naming convention (onEnter{CamelizedStateName}, onExit{CamelizedStateName})
 obj.onEnterNotDoingADamnThing = function() {
   console.log('OH NO')
 };
