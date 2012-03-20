@@ -1,7 +1,7 @@
 Description:
 ------------
 
-    Coffee script object state helper.
+    simple state handling for js in node/browser 
 
 Installation:
 -------------
