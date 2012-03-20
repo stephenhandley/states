@@ -2,6 +2,7 @@
 
 simple state handling for js in node/browser 
 
+
 # Installation:
 ```
 npm install states
@@ -41,14 +42,18 @@ Simple.prototype.onEnterDone = function() {
 simple = new Simple();
 simple.test();
 ```
+
 outputs
+
 ```
 it starts in the first state by default.
 exiting starting state
 entering done state
 all done
 ```
-Longer example in CoffeeScript 
+
+Longer example in CoffeeScript
+ 
 
 ```coffee
 {states} = require('states')
@@ -93,7 +98,9 @@ class Barfer
 barfer = new Barfer()
 barfer.goTimeGottaMakeItHappenOhhhhhYeaaaaahDuffman()
 ```
+
 outputs
+
 ```
 TOTALLY NOT GONNA BARF
 yeah, i swear, i'm  not barfing
