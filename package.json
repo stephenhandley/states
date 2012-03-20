@@ -1,7 +1,7 @@
 {
   "name": "states",
   "description": "simple state handling for js in node/browser ",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Stephen Handley <stephen.handley@gmail.com>",
   "keywords": ["state", "states", "state machine", "simple", "coffeescript"],
   "main": "./lib/states",
