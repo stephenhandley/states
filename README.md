@@ -1,16 +1,10 @@
 # Description:
 
-Add simple state machine support to JavaScript objects.
+Simple state handling for js in node/browser.
 
 # Installation:
 ```
 npm install states
-```
-
-In the browser, use [ender](http://ender.no.de/) and include the generated script:
-```
-npm install ender -g
-ender build states
 ```
 
 # Usage
